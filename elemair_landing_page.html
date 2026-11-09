@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElemAir™ | Multi-Sensor Smoke & Vape Detection for Schools</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        },
+                        slateDark: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#0b1120',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px -10px rgba(56, 189, 248, 0.3);
+        }
+        @keyframes pulseRing {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .pulse-ring { animation: pulseRing 4s infinite ease-in-out; }
+    </style>
+</head>
+<body class="bg-slateDark-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-slateDark-950/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center text-white shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black tracking-tight text-white leading-none">Elem<span class="text-brand-400">Air™</span></span>
+                    <span class="text-[10px] font-semibold tracking-widest text-slate-400 uppercase mt-0.5">Campus Safety Systems</span>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#video-ad" class="hover:text-brand-400 transition-colors">Video Ad</a>
+                <a href="#banners" class="hover:text-brand-400 transition-colors">Campaign Banners</a>
+                <a href="#technology" class="hover:text-brand-400 transition-colors">Technology</a>
+                <a href="#pricing" class="hover:text-brand-400 transition-colors">Pricing Tiers</a>
+            </nav>
+
+            <!-- Main Action CTA -->
+            <div>
+                <a href="#pilot-form" class="bg-brand-500 hover:bg-brand-400 text-slateDark-950 px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-brand-500/20 transition-all duration-200 hover:scale-[1.02] inline-block">
+                    Schedule Pilot Trial
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-900/20 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-500/10 border border-brand-500/30 text-brand-400 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Institutional B2B Safety Solution</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                        Smart Detection. <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-sky-300 to-amber-400">Zero False Alarms.</span> <br/>
+                        Total Campus Security.
+                    </h1>
+
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        ElemAir™ multi-sensor technology instantly differentiates between real fire smoke and illegal restroom vaping—delivering real-time alerts without wasting emergency resources.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#pilot-form" class="w-full sm:w-auto bg-brand-400 hover:bg-brand-500 text-slateDark-950 text-base font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-500/25 transition-all text-center hover:-translate-y-0.5">
+                            Schedule Your Campus Pilot Trial
+                        </a>
+                        <a href="#video-ad" class="w-full sm:w-auto bg-slateDark-800 hover:bg-slate-700 border border-slate-700 text-white text-base font-semibold px-6 py-4 rounded-xl transition-all text-center flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-play text-amber-400"></i>
+                            <span>Watch 60s Video Spot</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Device Preview Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md glass-panel rounded-3xl p-8 shadow-2xl border border-slate-700 relative overflow-hidden">
+                        <div class="absolute -top-12 -right-12 w-40 h-40 bg-brand-500/20 rounded-full blur-2xl"></div>
+                        
+                        <div class="relative z-10 flex flex-col items-center text-center">
+                            <div class="w-40 h-40 rounded-full bg-slateDark-900 border-4 border-slate-700 flex items-center justify-center shadow-2xl relative my-4 pulse-ring">
+                                <div class="w-28 h-28 rounded-full bg-brand-500/20 border border-brand-400/40 flex items-center justify-center">
+                                    <i class="fa-solid fa-tower-broadcast text-brand-400 text-4xl"></i>
+                                </div>
+                                <span class="absolute top-2 right-4 w-3.5 h-3.5 bg-emerald-400 rounded-full ring-4 ring-emerald-500/20"></span>
+                            </div>
+
+                            <span class="bg-brand-900/60 text-brand-300 border border-brand-500/30 text-xs px-3 py-1 rounded-full font-mono font-medium">SYS ID: EA-241-N63</span>
+                            <h3 class="text-xl font-bold text-white mt-2">ElemAir™ Multi-Sensor Unit</h3>
+                            <p class="text-xs text-slate-400 mt-1">Lead-Shielded Americium-241 & Ionization Core</p>
+
+                            <!-- Status Monitor Box -->
+                            <div class="w-full mt-6 bg-slateDark-900/90 rounded-xl p-4 border border-slate-800 text-left text-xs space-y-2">
+                                <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                                    <span class="text-slate-400">Sensor Array Status:</span>
+                                    <span class="text-emerald-400 font-bold"><i class="fa-solid fa-check text-[10px] mr-1"></i> Active</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-400">Restroom Vape Vapor:</span>
+                                    <span class="text-amber-400 font-bold"><i class="fa-solid fa-bell text-[10px] mr-1"></i> Silent Admin Alert</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-400">Structural Fire Smoke:</span>
+                                    <span class="text-slate-400 font-medium">Nominal (No False Alarm)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MEDIA SHOWCASE SECTION 1: VIDEO ADVERTISEMENT -->
+    <section id="video-ad" class="py-20 bg-slateDark-900 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-10">
+                <span class="text-brand-400 font-bold text-xs tracking-widest uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">Official Video Campaign</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">ElemAir™ Commercial Advertisement</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+                    Watch our 60-second advertisement highlighting school hallway evacuations, false alarm frustrations, and the ElemAir™ dual-sensor solution.
+                </p>
+            </div>
+
+            <!-- HTML5 Video Frame -->
+            <div class="relative bg-slateDark-950 rounded-2xl overflow-hidden border-2 border-brand-500/40 shadow-2xl glow-effect">
+                <video controls preload="metadata" poster="IMG_20261108_230704_457b65.jpg" class="w-full aspect-video object-contain bg-black">
+                    <source src="Build a Business.mp4" type="video/mp4">
+                    <source src="video_1.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+
+            <!-- Video Timeline Breakdown Cards (0-60 Seconds) -->
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-slateDark-800/80 p-4 rounded-xl border border-slate-700/80 space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-400 font-bold text-xs font-mono">0:00 - 0:15</span>
+                        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-xs"></i>
+                    </div>
+                    <h4 class="text-sm font-semibold text-white">False Alarm Problem</h4>
+                    <p class="text-xs text-slate-400">Tired of fire alarms interrupting classes for harmless vape vapor?</p>
+                </div>
+
+                <div class="bg-slateDark-800/80 p-4 rounded-xl border border-slate-700/80 space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-brand-400 font-bold text-xs font-mono">0:15 - 0:30</span>
+                        <i class="fa-solid fa-microchip text-brand-400 text-xs"></i>
+                    </div>
+                    <h4 class="text-sm font-semibold text-white">Dual-Sensor Precision</h4>
+                    <p class="text-xs text-slate-400">ElemAir™ detects airborne particulates with exact chemical differentiation.</p>
+                </div>
+
+                <div class="bg-slateDark-800/80 p-4 rounded-xl border border-slate-700/80 space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-emerald-400 font-bold text-xs font-mono">0:30 - 0:45</span>
+                        <i class="fa-solid fa-mobile-screen-button text-emerald-400 text-xs"></i>
+                    </div>
+                    <h4 class="text-sm font-semibold text-white">Instant Admin Alerts</h4>
+                    <p class="text-xs text-slate-400">Staff receives discrete mobile alerts without triggering building alarms.</p>
+                </div>
+
+                <div class="bg-slateDark-800/80 p-4 rounded-xl border border-slate-700/80 space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sky-400 font-bold text-xs font-mono">0:45 - 1:00</span>
+                        <i class="fa-solid fa-gift text-sky-400 text-xs"></i>
+                    </div>
+                    <h4 class="text-sm font-semibold text-white">District Pilot Offer</h4>
+                    <p class="text-xs text-slate-400">Order your campus bundle package to unlock exclusive district pricing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEDIA SHOWCASE SECTION 2: BANNER AD SHOWCASE -->
+    <section id="banners" class="py-20 bg-slateDark-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center space-y-3">
+                <span class="text-amber-400 font-bold text-xs tracking-widest uppercase bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Digital Campaign Creatives</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Institutional Banner Advertisements</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">Official marketing banners designed for school administrators and facility safety buyers.</p>
+            </div>
+
+            <!-- Banner Ad 1: Sound the Alarm -->
+            <div class="glass-panel rounded-3xl p-6 lg:p-8 border border-slate-700 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="bg-amber-500 text-slateDark-950 font-black text-xs px-3 py-1 rounded tracking-wider uppercase">Banner Asset #1</span>
+                    <h3 class="text-3xl font-extrabold text-white">SOUND THE ALARM on Health and Safety</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Designed to alert administrators against rampant restroom vaping while protecting learning time and avoiding false emergency dispatch fees.
+                    </p>
+                    <div class="pt-2 flex items-center space-x-4">
+                        <a href="#pilot-form" class="bg-amber-500 hover:bg-amber-400 text-slateDark-950 font-bold px-6 py-3 rounded-xl text-sm transition-all shadow-md">
+                            Claim 20% Off Bundle &rarr;
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono">Format: High-Res Web Display</span>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex justify-center">
+                    <img src="Screenshot_20261108_233327_4506ec.jpg" alt="Sound the Alarm Banner" class="rounded-2xl border border-slate-700 shadow-xl w-full max-h-64 object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'350\' viewBox=\'0 0 600 350\'><rect width=\'600\' height=\'350\' fill=\'%230f172a\'/><path d=\'M0 0 Q300 80 600 0 L600 120 Q300 200 0 120 Z\' fill=\'%23e2e8f0\' opacity=\'0.8\'/><text x=\'50%\' y=\'30%\' fill=\'%23334155\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'26\' text-anchor=\'middle\'>SOUND THE ALARM</text><text x=\'50%\' y=\'42%\' fill=\'%23475569\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\'>on Health and Safety</text><rect x=\'120\' y=\'210\' width=\'80\' height=\'90\' rx=\'8\' fill=\'%23dc2626\'/><circle cx=\'260\' cy=\'255\' r=\'40\' fill=\'%23f8fafc\'/><circle cx=\'370\' cy=\'255\' r=\'45\' fill=\'%23f8fafc\'/><rect x=\'440\' y=\'210\' width=\'90\' height=\'90\' rx=\'8\' fill=\'%234f46e5\'/></svg>';">
+                </div>
+            </div>
+
+            <!-- Banner Ad 2: NO Cause for Alarm -->
+            <div class="glass-panel rounded-3xl p-6 lg:p-8 border border-slate-700 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+                    <img src="Screenshot_20261108_233348_4506ec.jpg" alt="No Cause For Alarm Banner" class="rounded-2xl border border-slate-700 shadow-xl w-full max-h-80 object-contain bg-slateDark-900" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'750\' viewBox=\'0 0 600 750\'><rect width=\'600\' height=\'750\' fill=\'%23f8fafc\'/><circle cx=\'420\' cy=\'180\' r=\'120\' fill=\'%23e2e8f0\'/><circle cx=\'180\' cy=\'420\' r=\'90\' fill=\'%23ffffff\' stroke=\'%23cbd5e1\' stroke-width=\'8\'/><text x=\'50%\' y=\'400\' fill=\'%23334155\' font-family=\'sans-serif\' font-weight=\'300\' font-size=\'54\' text-anchor=\'middle\'>NO cause</text><text x=\'50%\' y=\'470\' fill=\'%23334155\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'64\' text-anchor=\'middle\'>for ALARM</text><text x=\'50%\' y=\'560\' fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'18\' text-anchor=\'middle\'>There\'s no need to worry or panic...</text></svg>';">
+                </div>
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
+                    <span class="bg-brand-500 text-slateDark-950 font-black text-xs px-3 py-1 rounded tracking-wider uppercase">Banner Asset #2</span>
+                    <h3 class="text-3xl font-extrabold text-white">NO Cause for ALARM</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        There’s no need to worry or panic with the installation of ElemAir™. Our multi-sensor alarms help identify and alert you of any smoke—ranging from structural fires to e-products—sending alerts directly to campus directors without triggering full evacuations.
+                    </p>
+                    <div class="pt-2 flex items-center space-x-4">
+                        <a href="#pilot-form" class="bg-brand-400 hover:bg-brand-500 text-slateDark-950 font-bold px-6 py-3 rounded-xl text-sm transition-all shadow-md">
+                            Schedule Campus Trial
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono">Format: Vertical / Feature Showcase</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRODUCT FEATURES SECTION -->
+    <section id="technology" class="py-20 bg-slateDark-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-3">
+                <span class="text-brand-400 font-bold text-xs tracking-widest uppercase">Proprietary Technology</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Built Specifically for Educational Environments</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">Combining radiation-shielded particulates sensing with intelligent cloud routing.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tech Feature 1 -->
+                <div class="bg-slateDark-800 p-8 rounded-2xl border border-slate-700/80 space-y-4 hover:border-brand-500/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Dual-Sensor Core</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Features Americium-241 and Nickel-63 sensors with state-of-the-art lead-plastic shielding to pinpoint nicotine and vapor without triggering fire alarms.
+                    </p>
+                </div>
+
+                <!-- Tech Feature 2 -->
+                <div class="bg-slateDark-800 p-8 rounded-2xl border border-slate-700/80 space-y-4 hover:border-brand-500/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">100% Privacy Compliant</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Zero optical cameras or microphones. Designed specifically for school bathrooms and locker rooms while protecting student privacy rights.
+                    </p>
+                </div>
+
+                <!-- Tech Feature 3 -->
+                <div class="bg-slateDark-800 p-8 rounded-2xl border border-slate-700/80 space-y-4 hover:border-brand-500/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Silent Mobile Route</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Sends instant app notifications directly to principals, vice principals, and security officers with precise location timestamps.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRICING TIERS SECTION -->
+    <section id="pricing" class="py-20 bg-slateDark-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center space-y-3">
+                <span class="text-brand-400 font-bold text-xs tracking-widest uppercase">Flexible Budgeting</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Institutional Purchase Options</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">Compatible with anti-tobacco grant allocations and school safety funding.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tier 1 -->
+                <div class="bg-slateDark-900 p-8 rounded-3xl border border-slate-800 space-y-6">
+                    <h4 class="text-lg font-bold text-slate-300">Basic Coverage</h4>
+                    <div class="text-3xl font-black text-white">$100 <span class="text-sm font-normal text-slate-400">– $300 / unit</span></div>
+                    <p class="text-xs text-slate-400">Ideal for single small campuses or targeted restroom deployment.</p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Dual-particulate vape detection</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Standard mobile alert routing</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 2 (Highlighted) -->
+                <div class="bg-gradient-to-b from-slateDark-800 to-slateDark-900 p-8 rounded-3xl border-2 border-brand-500 space-y-6 relative shadow-2xl">
+                    <span class="absolute -top-3 right-6 bg-brand-500 text-slateDark-950 font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
+                    <h4 class="text-lg font-bold text-brand-400">Average District Deployment</h4>
+                    <div class="text-3xl font-black text-white">$500 <span class="text-sm font-normal text-slate-400">– $1,000 / facility</span></div>
+                    <p class="text-xs text-slate-400">Covers middle & high school campuses with central management.</p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> All Basic Coverage features</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Central Security Dashboard</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> 30-Day Pilot Guarantee</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="bg-slateDark-900 p-8 rounded-3xl border border-slate-800 space-y-6">
+                    <h4 class="text-lg font-bold text-amber-400">Enterprise District Pack</h4>
+                    <div class="text-3xl font-black text-white">$1,200 <span class="text-sm font-normal text-slate-400">– $2,000+</span></div>
+                    <p class="text-xs text-slate-400">Complete multi-school campus network with tamper alarms.</p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Full hardware tamper security</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Priority installation & service</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Custom Grant assistance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS PILOT TRIAL FORM -->
+    <section id="pilot-form" class="py-24 bg-slateDark-900 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-700 shadow-2xl">
+                <div class="text-center space-y-3 mb-8">
+                    <span class="text-brand-400 font-bold text-xs tracking-widest uppercase">Start Your Trial</span>
+                    <h2 class="text-3xl font-extrabold text-white">Schedule Your Campus Pilot Trial</h2>
+                    <p class="text-slate-400 text-sm">Fill out the form below to test an ElemAir™ unit at your facility with zero obligation.</p>
+                </div>
+
+                <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Full Name</label>
+                            <input type="text" required placeholder="Principal Jane Doe" class="w-full bg-slateDark-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">School / District Name</label>
+                            <input type="text" required placeholder="Central High School District" class="w-full bg-slateDark-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-400">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Official Email Address</label>
+                            <input type="email" required placeholder="jdoe@school.edu" class="w-full bg-slateDark-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Phone Number</label>
+                            <input type="tel" required placeholder="(555) 000-0000" class="w-full bg-slateDark-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-400">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Estimated Units Needed</label>
+                        <select class="w-full bg-slateDark-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-400">
+                            <option>1 - 5 Units (Evaluation Trial)</option>
+                            <option>5 - 20 Units (Single Campus)</option>
+                            <option>20+ Units (Full District Deployment)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-400 hover:bg-brand-500 text-slateDark-950 font-bold py-4 rounded-xl shadow-xl transition-all text-base">
+                        Submit Pilot Trial Request
+                    </button>
+                </form>
+
+                <!-- Interactive Success Feedback Box -->
+                <div id="successMessage" class="hidden text-center py-8 space-y-4">
+                    <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Pilot Request Received!</h3>
+                    <p class="text-sm text-slate-300 max-w-md mx-auto">
+                        Thank you for contacting ElemAir™. An institutional security representative will follow up with your administration within 24 hours to coordinate your trial installation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slateDark-950 border-t border-slate-800 py-10 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="flex items-center space-x-2">
+                <span class="font-extrabold text-slate-300">ElemAir™</span>
+                <span>© 2026 ElemAir Campus Safety Systems. All rights reserved.</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-300">Institutional Terms</a>
+                <a href="#" class="hover:text-slate-300">Grant Compliance</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
